@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>A Christmas Card</title>
+
+  <style>
+    :root{
+      --paper:#f7f1e6;
+      --ink:#2a2a2a;
+      --muted:#5b5b5b;
+      --turq:#2a8c8c;
+      --rose:#eaa1b4;
+      --gold:#c99a2e;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100svh;
+      display:grid;
+      place-items:center;
+      padding:18px;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      background:
+        radial-gradient(1200px 900px at 20% 10%, rgba(42,140,140,.10), transparent 60%),
+        radial-gradient(1200px 900px at 80% 20%, rgba(234,161,180,.10), transparent 60%),
+        linear-gradient(180deg, #f4efe6, #efe7d7);
+      color:var(--ink);
+    }
+    .card{
+      width:min(720px, 100%);
+      background: var(--paper);
+      border-radius:22px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.18);
+      border: 2px solid rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+    .top{
+      padding:18px 20px 8px;
+    }
+    h1{
+      margin:0;
+      font-size: clamp(28px, 3.8vw, 44px);
+      letter-spacing:.4px;
+    }
+    .sub{
+      margin:8px 0 0;
+      color:var(--muted);
+      line-height:1.5;
+      font-size:16px;
+    }
+    .doodle{
+      width:100%;
+      display:block;
+      margin-top:10px;
+    }
+    .msg{
+      padding: 14px 20px 18px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      line-height:1.6;
+      color:#222;
+      font-size:16px;
+      white-space:pre-wrap;
+    }
+    .sig{
+      padding: 0 20px 18px;
+      color:var(--muted);
+      font-style:italic;
+    }
+    .bottom{
+      padding: 10px 18px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+      background: rgba(42,140,140,.08);
+      border-top:1px dashed rgba(0,0,0,.12);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font-size:12px;
+      color: rgba(0,0,0,.55);
+    }
+
+    /* lock screen */
+    .lock{
+      text-align:center;
+      padding:40px 24px;
+    }
+    .count{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:20px;
+      margin-top:12px;
+      color:#333;
+    }
+    .hidden{ display:none }
+  </style>
+</head>
+<body>
+
+<article class="card">
+
+  <!-- LOCKED VIEW -->
+  <div id="locked" class="lock">
+    <h1>🎁 A small Christmas surprise</h1>
+    <p class="sub">
+      This card opens on<br>
+      <strong>24 December at 6:00 pm</strong><br>
+      (Berlin time)
+    </p>
+    <div class="count" id="countdown">⏳</div>
+  </div>
+
+  <!-- UNLOCKED CARD -->
+  <div id="cardContent" class="hidden">
+
+    <div class="top">
+      <h1>Merry Christmas 🎄</h1>
+
+
+      <svg class="doodle" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M40 170 C120 120, 180 210, 260 160 S400 190, 480 150 620 200, 720 150 840 200, 880 160"
+              fill="none" stroke="rgba(42,140,140,.55)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M120 140 C150 95, 200 90, 230 130"
+              fill="none" stroke="rgba(234,161,180,.65)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M420 155 C450 110, 500 105, 530 145"
+              fill="none" stroke="rgba(234,161,180,.65)" stroke-width="6" stroke-linecap="round"/>
+        <path d="M300 55 L345 140 L315 140 L375 205 L225 205 L285 140 L255 140 Z"
+              fill="none" stroke="rgba(0,0,0,.35)" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="300" cy="50" r="10" fill="rgba(201,154,46,.65)"/>
+      </svg>
+    </div>
+
+    <div class="msg">
+Dear Matthe, my dear Future Astrophysicist 🚀,
+
+It’s Christmas again —
+that magical time when people look at the stars
+and still somehow don’t ask enough questions.
+
+You, on the other hand,
+already know that the universe is expanding,
+time bends,
+nothing is simple,
+and adults are often very confident about things
+they don’t fully understand.
+
+I admire that you want to study the cosmos —
+a place where chaos makes sense,
+math tells stories,
+and no one expects small talk.
+
+I wish you:
+clear nights,
+good telescopes,
+strong coffee (eventually),
+and a future where curiosity is never considered “too much.”
+
+May the coming year bring you
+answers that lead to better questions,
+teachers who can keep up,
+and the patience to explain to the rest of us
+why we’re wrong — gently. Or not.
+
+Stay brilliant.
+Stay curious.
+And remember:
+even stars need time to collapse
+before they become something extraordinary.
+
+Merry Christmas.
+✨🌌
+
+
+✨🎄
+
+
+✨
+
+
+✨
+    </div>
+
+    <div class="sig">— Daddy</div>
+
+    <div class="bottom">
+      <span>🎁 A small digital note</span>
+      <span>24 December</span>
+    </div>
+
+  </div>
+</article>
+
+<script>
+  const TARGET = "2025-12-24T18:00:00";
+  const TZ = "Europe/Berlin";
+
+  function nowBerlin(){
+    return new Date(new Date().toLocaleString("en-US",{timeZone:TZ}));
+  }
+
+  const target = new Date(new Date(TARGET).toLocaleString("en-US",{timeZone:TZ}));
+
+  const locked = document.getElementById("locked");
+  const card = document.getElementById("cardContent");
+  const cd = document.getElementById("countdown");
+
+  function tick(){
+    const diff = target - nowBerlin();
+    if(diff <= 0){
+      locked.classList.add("hidden");
+      card.classList.remove("hidden");
+      document.title = "Merry Christmas 🎄";
+      return;
+    }
+    const s = Math.floor(diff/1000);
+    const d = Math.floor(s/86400);
+    const h = Math.floor((s%86400)/3600);
+    const m = Math.floor((s%3600)/60);
+    const sec = s%60;
+    cd.textContent =
+      (d>0?`${d}d `:"") +
+      `${String(h).padStart(2,"0")}:` +
+      `${String(m).padStart(2,"0")}:` +
+      `${String(sec).padStart(2,"0")}`;
+  }
+  tick();
+  setInterval(tick,1000);
+</script>
+
+</body>
+</html>
